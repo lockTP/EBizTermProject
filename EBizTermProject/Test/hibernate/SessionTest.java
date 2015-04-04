@@ -6,7 +6,11 @@
 
 package hibernate;
 
+import beans.User;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.junit.AfterClass;
+import static org.junit.Assert.*;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -20,29 +24,31 @@ public class SessionTest {
     public SessionTest() {
     }
     
-//    
-//    @Test
-//	public void testSave() {
-//		Session session = null;
-//		Transaction tx = null; 
-//		try {
-//			session = HibernateUtils.getSession();
-//			tx = session.beginTransaction();
-//			
-//			User user = new User();
-//			user.setName("testSave");
-//			user.setPassword("11");
-//			session.save(user);
-//			tx.commit();
-//			assertEquals(1, 1);
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//			tx.rollback();
-//		}finally{
-//			HibernateUtils.closeSession(session);
-//		}
-//	}
-//	
+    
+    @Test
+	public void testSave() {
+		Session session = null;
+		Transaction tx = null; 
+		try {
+			session = HibernateUtils.getSession();
+			tx = session.beginTransaction();
+			
+			User user = new User();
+			user.setName("test");
+			user.setPassword("11");
+                        user.setEmail("hab82@pitt.edu");
+                        user.setRole("admin");
+			session.save(user);
+			tx.commit();
+			assertEquals(1, 1);
+		} catch (Exception e) {
+			e.printStackTrace();
+			tx.rollback();
+		}finally{
+			HibernateUtils.closeSession(session);
+		}
+	}
+	
 //	@Test
 //	public void testReadByGetMethod(){
 //		Session session = null;
@@ -60,7 +66,15 @@ public class SessionTest {
 //		}
 //	}
     
-    
+//    
+//    @BeforeClass
+//    public static void setUpClass() {
+//    }
+//    
+//    @AfterClass
+//    public static void tearDownClass() {
+//    }
+
     @BeforeClass
     public static void setUpClass() {
     }

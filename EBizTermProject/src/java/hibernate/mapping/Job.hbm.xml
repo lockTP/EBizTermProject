@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!--
+
+-->
+
+<hibernate-mapping>
+	<class name="beans.Job" table="Job">
+		<id name="id" column="id">
+			<generator class="uuid"></generator>
+		</id>
+		<property name="title"/>
+		<property name="description"/>
+		<property name="requirement"/>
+                <property name="cName"/>
+                <property name="cType"/>
+                <property name="cIndustry"/>
+                <property name="website"/>
+                <property name="lcoation"/>
+                <property name="cDescription"/>
+	</class>
+</hibernate-mapping>
