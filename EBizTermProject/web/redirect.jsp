@@ -1,9 +1,9 @@
-<%--
-Views should be stored under the WEB-INF folder so that
-they are not accessible except through controller process.
-
-This JSP is here to provide a redirect to the dispatcher
-servlet but should be the only JSP outside of WEB-INF.
+<%-- 
+    Document   : redirect
+    Created on : Apr 6, 2015, 1:21:22 AM
+    Author     : linxiaohui
 --%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<% response.sendRedirect("index.htm"); %>
+
+<%@page language="java" contentType="text/html" pageEncoding="UTF-8"%>
+
+<%response.sendRedirect("user.html");%>

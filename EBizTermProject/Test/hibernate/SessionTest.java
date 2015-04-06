@@ -6,7 +6,7 @@
 
 package hibernate;
 
-import beans.User;
+import model.User;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.junit.AfterClass;

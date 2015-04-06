@@ -1,20 +1,16 @@
-<?xml version="1.0"?>
-<!DOCTYPE hibernate-mapping PUBLIC
-	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!--
 
 -->
-
 <hibernate-mapping>
-	<class name="beans.User" table="Users">
-		<id name="id" column="id">
-			<generator class="uuid"></generator>
-		</id>
-		<property name="name"/>
-		<property name="password"/>
-		<property name="email"/>
-                <property name="role"/>
-	</class>
+  <class name="model.User" table="Users">
+    <id column="id" name="id">
+      <generator class="uuid"/>
+    </id>
+    <property name="name"/>
+    <property name="password"/>
+    <property name="email"/>
+    <property name="role"/>
+  </class>
 </hibernate-mapping>

@@ -4,13 +4,13 @@
  * and open the template in the editor.
  */
 
-package beans;
+package model;
 
 /**
  *
  * @author Weichuan
  */
-public class User {
+public class User{
     private String id;
     private String name;
     private String password;
