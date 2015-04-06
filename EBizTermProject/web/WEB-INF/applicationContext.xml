@@ -15,6 +15,8 @@
     <context:component-scan base-package="controller" />
      
     <mvc:annotation-driven /> 
+    
+    <mvc:resources location="/assets/" mapping="/assets/**" />
     <!--bean id="propertyConfigurer"
           class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
           p:location="/WEB-INF/jdbc.properties" />

@@ -34,7 +34,7 @@ public class UserController {
             return "welcome";
         } else {
             model.put("message", "Invalid");
-             return "login";
+            return "login";
         }
 
        
