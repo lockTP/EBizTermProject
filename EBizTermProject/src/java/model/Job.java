@@ -19,7 +19,7 @@ public class Job {
     private String cType;
     private String cIndustry;
     private String website;
-    private String lcoation;
+    private String location;
     private String cDescription;
 
     /**
@@ -135,17 +135,17 @@ public class Job {
     }
 
     /**
-     * @return the lcoation
+     * @return the location
      */
     public String getLcoation() {
-        return lcoation;
+        return location;
     }
 
     /**
-     * @param lcoation the lcoation to set
+     * @param lcoation the location to set
      */
     public void setLcoation(String lcoation) {
-        this.lcoation = lcoation;
+        this.location = lcoation;
     }
 
     /**

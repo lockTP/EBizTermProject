@@ -15,7 +15,7 @@
     <property name="cType"/>
     <property name="cIndustry"/>
     <property name="website"/>
-    <property name="lcoation"/>
+    <property name="location"/>
     <property name="cDescription"/>
   </class>
 </hibernate-mapping>
