@@ -16,7 +16,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link rel="stylesheet" href="<c:url value="/r/assets/css/customize.css" />" >
+        <link rel="stylesheet" href="<c:url value="/assets/css/customize.css" />" >
         <link rel="stylesheet" href="<c:url value="/assets/css/bootstrap.min.css"/>">
         <link rel="stylesheet" href="<c:url value="/assets/css/login.css"/>">      
         <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>       
@@ -118,29 +118,29 @@
                         <h4 class="modal-title" id="myModalLabel">Sign Up</h4>
                     </div>
                     <div class="modal-body">
-                        <form class="form-horizontal ng-pristine ng-valid" role="form" method="POST" action="RegServlet">
+                        <form class="form-horizontal ng-pristine ng-valid" role="form" method="POST" commandName="user" action="register.html">
                             <div class="form-group">
                                 <label for="email" class="col-sm-4 control-label">Name</label>
                                 <div class="col-sm-6">
-                                    <input type="name" id="name" name="username" class="form-control" placeholder="Name" autocapitalize="off">
+                                    <input type="name" id="name" name="name" path="name" class="form-control" placeholder="Name" autocapitalize="off">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="email" class="col-sm-4 control-label">Email</label>
                                 <div class="col-sm-6">
-                                    <input type="email" id="email" name="email" class="form-control" placeholder="Email" autocapitalize="off">
+                                    <input type="email" id="email" name="email" path="email" class="form-control" placeholder="Email" autocapitalize="off">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="password" class="col-sm-4 control-label">Password</label>
                                 <div class="col-sm-6">
-                                    <input type="password" name="password" class="form-control" placeholder="Password">
+                                    <input type="password" name="password" path="password" class="form-control" placeholder="Password">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="re_password" class="col-sm-4 control-label">Confirm Password</label>
                                 <div class="col-sm-6">
-                                    <input type="re_password" id="email" name="re_password" class="form-control" placeholder="Password" autocapitalize="off">
+                                    <input type="re_password" id="re_password" name="re_password" class="form-control" placeholder="Password" autocapitalize="off">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -154,7 +154,7 @@
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-offset-5 col-sm-3">
-                                    <button type="submit" class="btn btn-primary btn-block"><i class="fa fa-sign-in"></i>Sign Up</button>
+                                    <button type="submit" value="register" class="btn btn-primary btn-block"><i class="fa fa-sign-in"></i>Sign Up</button>
                                 </div>
                             </div>
                         </form>
