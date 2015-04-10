@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>JSP Page</title>
+        <title>Post Page</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -23,7 +23,7 @@
         <script src="<c:url value="/assets/js/jquery.js"/>"></script>
     </head>
     <body>
-            <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container-fluid">
             <div class="navbar-header">
                 <div class="navbar-brand">
@@ -65,7 +65,7 @@
                         Post a Job
                     </div>
                     <div class="panel-body">
-                        <form method="post" action="postJob.html" commandName="job"  class="form-horizontal" role="form">
+                        <form method="post" action="inserJob.html" commandName="job"  class="form-horizontal" role="form">
                             <div class="form-group">
                                 <label class="col-sm-4 control-label">Title:</label>
                                 <div class="col-sm-6">
