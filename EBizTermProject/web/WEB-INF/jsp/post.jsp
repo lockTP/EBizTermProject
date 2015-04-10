@@ -14,16 +14,15 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link rel="stylesheet" href="<c:url value="/assets/css/customize.css" />" >
+        <link rel="stylesheet" href="<c:url value="/assets/css/customize.css"/>">
         <link rel="stylesheet" href="<c:url value="/assets/css/bootstrap.min.css"/>">
-        <link rel="stylesheet" href="<c:url value="/assets/css/login.css"/>">      
-        <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>       
+        <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
         <script src="<c:url value="/assets/js/bootstrap.min.js"/>"></script>
         <script src="<c:url value="/assets/js/validateChecker.js"/>"></script>
         <script src="<c:url value="/assets/js/jquery.js"/>"></script>
     </head>
     <body>
-    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container-fluid">
             <div class="navbar-header">
                 <div class="navbar-brand">
@@ -65,70 +64,64 @@
                         Post a Job
                     </div>
                     <div class="panel-body">
-                        <form method="post" action="inserJob.html" commandName="job"  class="form-horizontal" role="form">
+                        <form method="post" action="insertJob.html" commandName="job"  class="form-horizontal" role="form">
                             <div class="form-group">
                                 <label class="col-sm-4 control-label">Title:</label>
                                 <div class="col-sm-6">
-                                    <input type="text" name="title" path="title" class="form-control" value="${sessionScope.title}" placeholder="${sessionScope.title}"  >
+                                    <input type="text" name="title" path="title" class="form-control" placeholder="title"  >
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-4 control-label">Description: </label>
                                 <div class="col-sm-6">
-                                    <input type="text" name="description" path="description" class="form-control" value="${sessionScope.description}" placeholder="${sessionScope.description}" >
+                                    <textarea name="description" path="description" class="form-control" placeholder="description"></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-4 control-label">Requirement:</label>
                                 <div class="col-sm-6">
-                                    <input type="text" name="requirement" path="requirement" class="form-control" value="${sessionScope.requirement}" placeholder="${sessionScope.requirement}">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-4 control-label">Requirement:</label>
-                                <div class="col-sm-6">
-                                    <input type="text" name="requirement" path="requirement" class="form-control" value="${sessionScope.requirement}" placeholder="${sessionScope.requirement}">
+                                    <input type="text" name="requirement" path="requirement" class="form-control" placeholder="requirement">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-4 control-label">Company Name:</label>
                                 <div class="col-sm-6">
-                                    <input type="text" name="cName" path="cName" class="form-control" value="${sessionScope.cName}" placeholder="${sessionScope.cName}">
+                                    <input type="text" name="cName" path="cName" class="form-control" placeholder="Company Name">
                                 </div>
                             </div> 
                             <div class="form-group">
                                 <label class="col-sm-4 control-label">Company Type:</label>
                                 <div class="col-sm-6">
-                                    <input type="text" name="cType" path="cType" class="form-control" value="${sessionScope.cType}" placeholder="${sessionScope.cType}">
+                                    <input type="text" name="cType" path="cType" class="form-control" placeholder="Company Type">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-4 control-label">Company Industry:</label>
                                 <div class="col-sm-6">
-                                    <input type="text" name="cIndustry" path="cIndustry" class="form-control" value="${sessionScope.cIndustry}" placeholder="${sessionScope.cIndustry}">
+                                    <input type="text" name="cIndustry" path="cIndustry" class="form-control" placeholder="Company Industry">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-4 control-label">Website:</label>
                                 <div class="col-sm-6">
-                                    <input type="text" name="website" path="website" class="form-control" value="${sessionScope.website}" placeholder="${sessionScope.website}">
+                                    <input type="text" name="website" path="website" class="form-control" placeholder="website">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-4 control-label">Location:</label>
                                 <div class="col-sm-6">
-                                    <input type="text" name="location" path="location" class="form-control" value="${sessionScope.location}" placeholder="${sessionScope.location}">
+                                    <input type="text" name="location" path="location" class="form-control" placeholder="location">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-4 control-label">Company Description:</label>
                                 <div class="col-sm-6">
-                                    <input type="text" name="cDescription" path="cDescription" class="form-control" value="${sessionScope.cDescription}" placeholder="${sessionScope.cDescription}">
+                                    <textarea name="cDescription" path="cDescription" class="form-control" placeholder="Company Description"></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-3 col-sm-offset-4">
-                                    <button id="btn_1" class="btn btn-primary btn-block" type="submit" name="update" value="update">Post</button>
+                                    <button id="btn_1" class="btn btn-primary btn-block" type="submit" name="post" value="post">Post</button>
                                 </div>
                             </div>
                         </form>

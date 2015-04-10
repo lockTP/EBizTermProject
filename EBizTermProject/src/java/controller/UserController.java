@@ -5,10 +5,12 @@
  */
 package controller;
 
-import model.User;
+import dao.JobDAO;
 import dao.UserDAO;
 import javax.servlet.http.HttpSession;
 import model.Constant;
+import model.Job;
+import model.User;
 import org.springframework.stereotype.*;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
@@ -73,18 +75,26 @@ public class UserController {
         return "profile";
     }
     
-//    @RequestMapping(value = "postJob", method = RequestMethod.GET)
-//    public String post(@ModelAttribute(value = "user") User user, ModelMap model, HttpSession session){
-//        if (user != null) {
-//            session.setAttribute("name", user.getName());
-//            session.setAttribute("userid", user.getId());
-//            session.setAttribute("email", user.getEmail());
-//            session.setAttribute("password", user.getPassword());
-//            return "post";
-//        } else {
-//            model.put("message", "Invalid");
-//            return "login";
-//        }
-//    }
+    @RequestMapping(value = "postJob", method = RequestMethod.POST)
+    public String post(@ModelAttribute(value = "user") User user, ModelMap model, HttpSession session){
+        if (user != null) {
+            session.setAttribute("name", user.getName());
+            session.setAttribute("userid", user.getId());
+            session.setAttribute("email", user.getEmail());
+            session.setAttribute("password", user.getPassword());
+            return "post";
+        } else {
+            model.put("message", "Invalid");
+            return "login";
+        }
+    }
+    
+    @RequestMapping(value = "insertJob", method = RequestMethod.POST)
+    public String insertJob(@ModelAttribute(value = "job") Job job, ModelMap model, HttpSession session){
+        JobDAO jobdao = new JobDAO();
+        jobdao.saveJob(job);
+        jobdao.close();
+        return "post";
+    }
 
 }
