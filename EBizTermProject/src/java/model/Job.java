@@ -137,14 +137,14 @@ public class Job {
     /**
      * @return the location
      */
-    public String getLcoation() {
+    public String getLocation() {
         return location;
     }
 
     /**
      * @param lcoation the location to set
      */
-    public void setLcoation(String lcoation) {
+    public void setLocation(String lcoation) {
         this.location = lcoation;
     }
 

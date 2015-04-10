@@ -72,5 +72,19 @@ public class UserController {
         session.setAttribute("password", user.getPassword());
         return "profile";
     }
+    
+//    @RequestMapping(value = "postJob", method = RequestMethod.GET)
+//    public String post(@ModelAttribute(value = "user") User user, ModelMap model, HttpSession session){
+//        if (user != null) {
+//            session.setAttribute("name", user.getName());
+//            session.setAttribute("userid", user.getId());
+//            session.setAttribute("email", user.getEmail());
+//            session.setAttribute("password", user.getPassword());
+//            return "post";
+//        } else {
+//            model.put("message", "Invalid");
+//            return "login";
+//        }
+//    }
 
 }
