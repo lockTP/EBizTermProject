@@ -14,6 +14,7 @@ import model.User;
 import org.springframework.stereotype.*;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.portlet.ModelAndView;
 
 /**
  *
@@ -26,6 +27,25 @@ public class UserController {
     public String index(ModelMap model) {
         model.put("user", new User());
         return "login";
+    }
+
+    @RequestMapping(value = "search", method = RequestMethod.GET)
+    public String toSearchPage(ModelMap model) {
+        model.put("user", new User());
+        return "search";
+    }
+    
+
+    @RequestMapping(value = "post", method = RequestMethod.GET)
+    public String toPostPage(ModelMap model) {
+        model.put("user", new User());
+        return "post";
+    }
+
+    @RequestMapping(value = "profile", method = RequestMethod.GET)
+    public String toProfilePage(ModelMap model) {
+        model.put("user", new User());
+        return "profile";
     }
 
     @RequestMapping(value = "login", method = RequestMethod.POST)
@@ -74,9 +94,9 @@ public class UserController {
         session.setAttribute("password", user.getPassword());
         return "profile";
     }
-    
+
     @RequestMapping(value = "postJob", method = RequestMethod.POST)
-    public String post(@ModelAttribute(value = "user") User user, ModelMap model, HttpSession session){
+    public String post(@ModelAttribute(value = "user") User user, ModelMap model, HttpSession session) {
         if (user != null) {
             session.setAttribute("name", user.getName());
             session.setAttribute("userid", user.getId());
@@ -88,9 +108,9 @@ public class UserController {
             return "login";
         }
     }
-    
+
     @RequestMapping(value = "insertJob", method = RequestMethod.POST)
-    public String insertJob(@ModelAttribute(value = "job") Job job, ModelMap model, HttpSession session){
+    public String insertJob(@ModelAttribute(value = "job") Job job, ModelMap model, HttpSession session) {
         JobDAO jobdao = new JobDAO();
         jobdao.saveJob(job);
         jobdao.close();
