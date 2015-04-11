@@ -48,6 +48,7 @@
                     <li class="active"><a href="">Post</a></li>
                     <li><a href="search.html">Search</a></li>
                     <li><a href="profile.html">Profile</a></li>
+                    <li><a href="crawler.html">Crawler</a></li>
                     <li><a href="">Log out</a></li>
                 </ul>
 

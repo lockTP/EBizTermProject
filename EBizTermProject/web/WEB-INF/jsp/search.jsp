@@ -54,6 +54,7 @@
                     <li><a href="post.html">Post</a></li>
                     <li class="active"><a href="">Search</a></li>
                     <li><a href="profile.html">Profile</a></li>
+                    <li><a href="crawler.html">Crawler</a></li>
                     <li><a href="">Log out</a></li>
                 </ul>
 

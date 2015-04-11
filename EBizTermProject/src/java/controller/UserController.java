@@ -49,6 +49,12 @@ public class UserController {
         model.put("user", new User());
         return "profile";
     }
+    
+    @RequestMapping(value = "crawler", method = RequestMethod.GET)
+    public String toCrawlerPage(ModelMap model) {
+        model.put("user", new User());
+        return "post";
+    }
 
     @RequestMapping(value = "login", method = RequestMethod.POST)
     public String login(@ModelAttribute(value = "user") User user, ModelMap model, HttpSession session) {
@@ -59,9 +65,11 @@ public class UserController {
             session.setAttribute("userid", user.getId());
             session.setAttribute("email", user.getEmail());
             session.setAttribute("password", user.getPassword());
+            userdao.close();
             return "profile";
         } else {
             model.put("message", "Invalid");
+            userdao.close();
             return "login";
         }
     }
@@ -74,12 +82,15 @@ public class UserController {
             session.setAttribute("userid", user.getId());
             session.setAttribute("email", user.getEmail());
             session.setAttribute("password", user.getPassword());
+            userdao.close();
             return "profile";
         } else {
             if (userdao.insertOrUpdateUser("register", user) == Constant.USERNAME_DUPLICATE) {
+                userdao.close();
                 return "login";
             } else {
                 model.put("message", "Register Fail");
+                userdao.close();
                 return "login";
             }
         }
@@ -94,6 +105,7 @@ public class UserController {
         session.setAttribute("userid", user.getId());
         session.setAttribute("email", user.getEmail());
         session.setAttribute("password", user.getPassword());
+        userdao.close();
         return "profile";
     }
 
@@ -130,5 +142,7 @@ public class UserController {
         userdao.close();
         return "post";
     }
+    
+
 
 }
