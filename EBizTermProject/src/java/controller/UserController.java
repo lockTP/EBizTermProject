@@ -7,6 +7,8 @@ package controller;
 
 import dao.JobDAO;
 import dao.UserDAO;
+import email.EmailNotifier;
+import java.util.List;
 import javax.servlet.http.HttpSession;
 import model.Constant;
 import model.Job;
@@ -37,7 +39,7 @@ public class UserController {
             session.setAttribute("userid", user.getId());
             session.setAttribute("email", user.getEmail());
             session.setAttribute("password", user.getPassword());
-            return "profile";
+            return "post";
         } else {
             model.put("message", "Invalid");
             return "login";
@@ -75,25 +77,36 @@ public class UserController {
         return "profile";
     }
     
-    @RequestMapping(value = "postJob", method = RequestMethod.POST)
-    public String post(@ModelAttribute(value = "user") User user, ModelMap model, HttpSession session){
-        if (user != null) {
-            session.setAttribute("name", user.getName());
-            session.setAttribute("userid", user.getId());
-            session.setAttribute("email", user.getEmail());
-            session.setAttribute("password", user.getPassword());
-            return "post";
-        } else {
-            model.put("message", "Invalid");
-            return "login";
-        }
-    }
+//    @RequestMapping(value = "postJob", method = RequestMethod.POST)
+//    public String post(@ModelAttribute(value = "user") User user, ModelMap model, HttpSession session){
+//        UserDAO userdao = new UserDAO();
+//        user = userdao.login(user.getName(), user.getPassword());
+//        if (user != null) {
+//            session.setAttribute("name", user.getName());
+//            session.setAttribute("userid", user.getId());
+//            session.setAttribute("email", user.getEmail());
+//            session.setAttribute("password", user.getPassword());
+//            return "post";
+//        } else {
+//            model.put("message", "Invalid");
+//            return "login";
+//        }
+//    }
     
     @RequestMapping(value = "insertJob", method = RequestMethod.POST)
     public String insertJob(@ModelAttribute(value = "job") Job job, ModelMap model, HttpSession session){
         JobDAO jobdao = new JobDAO();
+        UserDAO userdao = new UserDAO();
         jobdao.saveJob(job);
         jobdao.close();
+        EmailNotifier emailNotifier = new EmailNotifier();
+        String mailSubject = "Job ALert:" + job.getTitle();
+        String mailText = "Title:" + job.getTitle() +"\nCompany:" + job.getcName() + "\nDescription:" + job.getDescription();
+        List<User> users = userdao.getAllUsers();
+        for(int i = 0; i< users.size(); i++){
+            emailNotifier.sendMail(users.get(i).getEmail(), mailSubject, mailText);
+        }
+        userdao.close();
         return "post";
     }
 

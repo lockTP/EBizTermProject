@@ -5,9 +5,11 @@
  */
 package dao;
 
-import model.User;
 import hibernate.HibernateUtils;
+import java.util.ArrayList;
+import java.util.List;
 import model.Constant;
+import model.User;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -92,6 +94,17 @@ public class UserDAO {
             userinfo = new User();
             userinfo = (User) q.uniqueResult();
             return userinfo;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    
+    public List<User> getAllUsers(){
+        try {
+            Query q = session.createQuery("from User");
+            List<User> users = q.list();
+            return users;
         } catch (Exception e) {
             e.printStackTrace();
         }
