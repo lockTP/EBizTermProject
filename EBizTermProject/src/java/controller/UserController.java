@@ -59,7 +59,7 @@ public class UserController {
             session.setAttribute("userid", user.getId());
             session.setAttribute("email", user.getEmail());
             session.setAttribute("password", user.getPassword());
-            return "post";
+            return "profile";
         } else {
             model.put("message", "Invalid");
             return "login";
