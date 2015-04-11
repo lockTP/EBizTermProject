@@ -17,6 +17,7 @@
     <mvc:annotation-driven /> 
     
     <mvc:resources location="/assets/" mapping="/assets/**" />
+    <mvc:resources mapping="/static/**" location="/" cache-period="31556926"/>
     <!--bean id="propertyConfigurer"
           class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
           p:location="/WEB-INF/jdbc.properties" />

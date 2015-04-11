@@ -50,11 +50,12 @@
                     <!-- Server Dropdown -->
                 </ul>
 
+
                 <!-- User Dropdown -->
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="">Post</a></li>
-                    <li><a href="">Search</a></li>
-                    <li class="active"><a href="profile.jsp">Profile</a></li>
+                    <li><a href="post.html">Post</a></li>
+                    <li><a href="search.html" >Search</a></li>
+                    <li class="active"><a>Profile</a></li>
                     <li><a href="">Log out</a></li>
                 </ul>
 
