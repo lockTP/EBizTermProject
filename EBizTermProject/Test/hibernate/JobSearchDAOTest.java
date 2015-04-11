@@ -6,7 +6,8 @@
 
 package hibernate;
 
-import dao.JobDAO;
+import dao.JobSearchDAO;
+import java.util.List;
 import model.Job;
 import org.junit.AfterClass;
 import static org.junit.Assert.*;
@@ -17,33 +18,22 @@ import org.junit.Test;
  *
  * @author Weichuan
  */
-public class JobDAOTest {
+public class JobSearchDAOTest {
     
-    public JobDAOTest() {
+    public JobSearchDAOTest() {
     }
     
     @BeforeClass
     public static void setUpClass() {
     }
     
-//    @Test
-//    public void testSaveJob(){
-//        Job job = new Job();
-//        job.setDescription("Description");
-//        job.setTitle("title");
-//        job.setRequirement("requirement");
-//        job.setWebsite("website");
-//        job.setLocation("location");
-//        job.setcName("cName");
-//        job.setcType("cType");
-//        job.setcDescription("cDescription");
-//        job.setcIndustry("cIndustry");
-//        JobDAO jobDAO = new JobDAO();
-//        jobDAO.saveJob(job);
-//        assertEquals(1,1);
-//    }
-
-    
+    @Test
+    public void testSearchByCondition(){
+        JobSearchDAO jobSearchDAO = new JobSearchDAO();
+        List<Job> jobs = jobSearchDAO.searchByCondition("pig", "location", "cName");
+        System.out.print(jobs.get(0).getDescription());
+        assertEquals(1,1);
+    }
     
     @AfterClass
     public static void tearDownClass() {
