@@ -9,6 +9,7 @@ import dao.JobDAO;
 import dao.UserDAO;
 import email.EmailNotifier;
 import java.util.List;
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
 import model.Constant;
 import model.Job;
@@ -17,6 +18,9 @@ import org.springframework.stereotype.*;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.portlet.ModelAndView;
+import spider.FilesUtility;
+import spider.JobItemFlag;
+import spider.SpiderMain;
 
 /**
  *
@@ -53,6 +57,22 @@ public class UserController {
     @RequestMapping(value = "crawler", method = RequestMethod.GET)
     public String toCrawlerPage(ModelMap model) {
         model.put("user", new User());
+        //get the root path of the project, where all those files are
+        ServletContext context=this.getServletContext();
+        String projectRootPath=context.getRealPath("/"); 
+        projectRootPath = projectRootPath.replaceAll("(.+Assignment7_hab81).+", "$1");
+        projectRootPath += "/";
+        
+        SpiderMain spiderMain = new SpiderMain();
+        spiderMain.setErrorFilePath(projectRootPath);
+        spiderMain.setTempFilePath(projectRootPath);
+        spiderMain.setErrorFilePath(projectRootPath);
+        spiderMain.setJobsFilePath(projectRootPath);
+        JobItemFlag.setRefSourceFilePath(projectRootPath);
+        FilesUtility.setErrorFilePath(projectRootPath);
+        FilesUtility.setTempFilePath(projectRootPath);
+        
+        spiderMain.startSpider();
         return "post";
     }
 
