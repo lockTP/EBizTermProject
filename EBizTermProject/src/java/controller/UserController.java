@@ -57,22 +57,22 @@ public class UserController {
     @RequestMapping(value = "crawler", method = RequestMethod.GET)
     public String toCrawlerPage(ModelMap model) {
         model.put("user", new User());
-        //get the root path of the project, where all those files are
-        ServletContext context=this.getServletContext();
-        String projectRootPath=context.getRealPath("/"); 
-        projectRootPath = projectRootPath.replaceAll("(.+Assignment7_hab81).+", "$1");
-        projectRootPath += "/";
-        
-        SpiderMain spiderMain = new SpiderMain();
-        spiderMain.setErrorFilePath(projectRootPath);
-        spiderMain.setTempFilePath(projectRootPath);
-        spiderMain.setErrorFilePath(projectRootPath);
-        spiderMain.setJobsFilePath(projectRootPath);
-        JobItemFlag.setRefSourceFilePath(projectRootPath);
-        FilesUtility.setErrorFilePath(projectRootPath);
-        FilesUtility.setTempFilePath(projectRootPath);
-        
-        spiderMain.startSpider();
+//        //get the root path of the project, where all those files are
+//        ServletContext context=this.getServletContext();
+//        String projectRootPath=context.getRealPath("/"); 
+//        projectRootPath = projectRootPath.replaceAll("(.+Assignment7_hab81).+", "$1");
+//        projectRootPath += "/";
+//        
+//        SpiderMain spiderMain = new SpiderMain();
+//        spiderMain.setErrorFilePath(projectRootPath);
+//        spiderMain.setTempFilePath(projectRootPath);
+//        spiderMain.setErrorFilePath(projectRootPath);
+//        spiderMain.setJobsFilePath(projectRootPath);
+//        JobItemFlag.setRefSourceFilePath(projectRootPath);
+//        FilesUtility.setErrorFilePath(projectRootPath);
+//        FilesUtility.setTempFilePath(projectRootPath);
+//        
+//        spiderMain.startSpider();
         return "post";
     }
 
@@ -85,11 +85,9 @@ public class UserController {
             session.setAttribute("userid", user.getId());
             session.setAttribute("email", user.getEmail());
             session.setAttribute("password", user.getPassword());
-            userdao.close();
             return "profile";
         } else {
             model.put("message", "Invalid");
-            userdao.close();
             return "login";
         }
     }
@@ -102,7 +100,6 @@ public class UserController {
             session.setAttribute("userid", user.getId());
             session.setAttribute("email", user.getEmail());
             session.setAttribute("password", user.getPassword());
-            userdao.close();
             return "profile";
         } else {
             if (userdao.insertOrUpdateUser("register", user) == Constant.USERNAME_DUPLICATE) {
@@ -125,7 +122,6 @@ public class UserController {
         session.setAttribute("userid", user.getId());
         session.setAttribute("email", user.getEmail());
         session.setAttribute("password", user.getPassword());
-        userdao.close();
         return "profile";
     }
 
