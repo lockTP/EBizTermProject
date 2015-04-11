@@ -141,15 +141,15 @@ public class SpiderMain {
         tempFileParser.parse();
         
         //input information of jobs.xml to database
-        try {
-            SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
-            SAXParser saxParser = saxParserFactory.newSAXParser();
-            DBFileHandler handler = new DBFileHandler();
-            saxParser.parse(this.jobsFilePath + this.jobsFileName, handler);
-        } 
-        catch (ParserConfigurationException | SAXException | IOException ex) {
-            System.out.printf("Class: %s. Exception: %s.\n", SpiderMain.class.getName(), ex.toString());
-        }
+//        try {
+//            SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
+//            SAXParser saxParser = saxParserFactory.newSAXParser();
+//            DBFileHandler handler = new DBFileHandler();
+//            saxParser.parse(this.jobsFilePath + this.jobsFileName, handler);
+//        } 
+//        catch (ParserConfigurationException | SAXException | IOException ex) {
+//            System.out.printf("Class: %s. Exception: %s.\n", SpiderMain.class.getName(), ex.toString());
+//        }
     }
     
     //start the spider independently by invoking this function
