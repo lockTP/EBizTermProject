@@ -25,32 +25,7 @@ public class JobSearchDAO {
     public JobSearchDAO() {
         this.session = HibernateUtils.getSessionFactory().openSession();
     }
-    
-    public List<Job> searchByCriteria(Job job,int page) {
-
-        int maxPage;
-        int itemsPerPage = 5;
         
-        List<Job> jobList = new ArrayList<Job>();
-        try {
-            Criteria c = session.createCriteria(Job.class);
-            if (job.getTitle() != null) {
-                c.add(Restrictions.like("title", "%" + job.getTitle() + "%"));
-            }
-
-            maxPage = c.list().size() / itemsPerPage;
-            c.setFirstResult(page * itemsPerPage);
-            c.setMaxResults(itemsPerPage);
-            jobList = (List<Job>) c.list();
-            return jobList;
-        } catch (HibernateException e) {
-            System.err.println(e.getMessage());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-    
     public List<Job> searchByCondition(String keyword, String location, String cName){
         Criteria c = session.createCriteria(Job.class);
         if(keyword != null){

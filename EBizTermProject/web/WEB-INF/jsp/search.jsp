@@ -13,8 +13,9 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
 <%@page import="model.User"%>
+<%@page import="model.Job"%>
 <!DOCTYPE html>
-<jsp:useBean id="userdao" scope="page" class="dao.UserDAO"/>
+    <jsp:useBean id="userdao" scope="page" class="dao.UserDAO"/>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -48,18 +49,75 @@
                 <ul class="nav navbar-nav">
                     <!-- Server Dropdown -->
                 </ul>
-
                 <!-- User Dropdown -->
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="post.html">Post</a></li>
                     <li class="active"><a href="">Search</a></li>
                     <li><a href="profile.html">Profile</a></li>
                     <li><a href="crawler.html">Crawler</a></li>
-                    <li><a href="">Log out</a></li>
+                    <li><a href="login.html">Log out</a></li>
                 </ul>
-
             </div>
         </div>
     </nav>
+    <div class="container-fluid">
+        <div class="row-main" style=" padding-top:1%">
+            <form method="POST" action="search.html" commandName="job">
+                <div class="col-md-offset-1 col-lg-11">
+                    <label for="input1" class="col-md-1 ">Keyword:</label>
+                    <input path="keyword" class="col-md-2" type="text" id="keyword" name="keyword" class="form-control" placeholder=" ">
+                    <label for="input2" class="col-md-1 ">Location:</label>
+                    <input path="location" class="col-md-2" type="text" id="location" name="location" class="form-control" placeholder=" ">
+                    <label for="input3" class="col-md-1 ">Company:</label>
+                    <input path="cName" class="col-md-2" type="text" id="cName" name="cName" class="form-control" placeholder=" ">
+                    <button class="col-md-1 btn-primary" value="search" type="submit" style="margin-left: 5%">Search</button>
+                </div>
+            </form>
+        </div>
+        <div class="row-main" >
+
+            <c:if test="${not empty jobList}">
+                <c:forEach items="${jobList}" var="job" varStatus="status">
+                    <div class="panel panel-primary col-md-offset-2 col-md-8">
+                        <div class="panel-body" style="margin-top: -6%;">
+                            <div class="row">
+                                Company Name:&nbsp ${job.cName}
+                            </div>
+                            <div class="row">
+                                Title:&nbsp${job.title}
+                            </div>
+                            <div class="row">
+                                Location:&nbsp${job.location}
+                            </div>
+                            <div class="pull-right">
+                                <button type="button" class="btn-primary" data-toggle="modal" data-target="#${job.id}">
+                                    <span class="txt">detail</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="modal fade" id="${job.id}" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">Job Detail Information:</h4>
+                                </div>
+                                <div class="modal-body">
+                                    ${job.description}
+                                </div>
+                            </div>
+                        </div>
+                    </div>    
+
+                </c:forEach>
+            </c:if>
+        </div>
+    </div>
+
+
+
 </body>
 </html>
