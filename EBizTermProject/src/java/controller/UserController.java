@@ -63,14 +63,14 @@ public class UserController {
     }
 
     @RequestMapping(value = "crawler", method = RequestMethod.GET)
-    public String toCrawlerPage(ModelMap model) {
+    public String toCrawlerPage(ModelMap model, HttpSession session) {
         model.put("user", new User());
 //        //get the root path of the project, where all those files are
-        ServletContext context=this.getServletContext();
-        String projectRootPath=context.getRealPath("/"); 
-        projectRootPath = projectRootPath.replaceAll("(.+Assignment7_hab81).+", "$1");
+        ServletContext context = session.getServletContext();
+        String projectRootPath = context.getRealPath("/"); 
+        projectRootPath = projectRootPath.replaceAll("(.+EBizTermProject).+", "$1");
         projectRootPath += "/";
-        
+
         SpiderMain spiderMain = new SpiderMain();
         spiderMain.setErrorFilePath(projectRootPath);
         spiderMain.setTempFilePath(projectRootPath);
