@@ -6,9 +6,12 @@
 package controller;
 
 import dao.JobDAO;
+import dao.JobSearchDAO;
 import dao.UserDAO;
 import email.EmailNotifier;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
 import model.Constant;
@@ -40,7 +43,6 @@ public class UserController {
         model.put("user", new User());
         return "search";
     }
-    
 
     @RequestMapping(value = "post", method = RequestMethod.GET)
     public String toPostPage(ModelMap model) {
@@ -48,16 +50,22 @@ public class UserController {
         return "post";
     }
 
+    @RequestMapping(value = "login", method = RequestMethod.GET)
+    public String toLoginPage(ModelMap model) {
+        //model.put("user", new User());
+        return "login";
+    }
+
     @RequestMapping(value = "profile", method = RequestMethod.GET)
     public String toProfilePage(ModelMap model) {
         model.put("user", new User());
         return "profile";
     }
-    
+
     @RequestMapping(value = "crawler", method = RequestMethod.GET)
     public String toCrawlerPage(ModelMap model) {
         model.put("user", new User());
-        //get the root path of the project, where all those files are
+//        //get the root path of the project, where all those files are
         ServletContext context=this.getServletContext();
         String projectRootPath=context.getRealPath("/"); 
         projectRootPath = projectRootPath.replaceAll("(.+Assignment7_hab81).+", "$1");
@@ -85,11 +93,9 @@ public class UserController {
             session.setAttribute("userid", user.getId());
             session.setAttribute("email", user.getEmail());
             session.setAttribute("password", user.getPassword());
-            userdao.close();
             return "profile";
         } else {
             model.put("message", "Invalid");
-            userdao.close();
             return "login";
         }
     }
@@ -102,7 +108,6 @@ public class UserController {
             session.setAttribute("userid", user.getId());
             session.setAttribute("email", user.getEmail());
             session.setAttribute("password", user.getPassword());
-            userdao.close();
             return "profile";
         } else {
             if (userdao.insertOrUpdateUser("register", user) == Constant.USERNAME_DUPLICATE) {
@@ -125,7 +130,6 @@ public class UserController {
         session.setAttribute("userid", user.getId());
         session.setAttribute("email", user.getEmail());
         session.setAttribute("password", user.getPassword());
-        userdao.close();
         return "profile";
     }
 
@@ -144,8 +148,6 @@ public class UserController {
 //            return "login";
 //        }
 //    }
-    
-
     @RequestMapping(value = "insertJob", method = RequestMethod.POST)
     public String insertJob(@ModelAttribute(value = "job") Job job, ModelMap model, HttpSession session) {
         JobDAO jobdao = new JobDAO();
@@ -154,15 +156,21 @@ public class UserController {
         jobdao.close();
         EmailNotifier emailNotifier = new EmailNotifier();
         String mailSubject = "Job ALert:" + job.getTitle();
-        String mailText = "Title:" + job.getTitle() +"\nCompany:" + job.getcName() + "\nDescription:" + job.getDescription();
+        String mailText = "Title:" + job.getTitle() + "\nCompany:" + job.getcName() + "\nDescription:" + job.getDescription();
         List<User> users = userdao.getAllUsers();
-        for(int i = 0; i< users.size(); i++){
+        for (int i = 0; i < users.size(); i++) {
             emailNotifier.sendMail(users.get(i).getEmail(), mailSubject, mailText);
         }
         userdao.close();
         return "post";
     }
-    
 
+    @RequestMapping(value = "search", method = RequestMethod.POST)
+    public String searchJob(@RequestParam("keyword") String keyword, @RequestParam("location") String location, @RequestParam("cName") String cName, ModelMap model, HttpSession session) {
+        JobSearchDAO jobSearchDAO = new JobSearchDAO();
+        List<Job> jobList = jobSearchDAO.searchByCondition(keyword, location, cName);
+        model.put("jobList", jobList);
+        return "search";
+    }
 
 }

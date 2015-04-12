@@ -57,7 +57,7 @@
                     <li><a href="search.html" >Search</a></li>
                     <li class="active"><a>Profile</a></li>
                     <li><a href="crawler.html">Crawler</a></li>
-                    <li><a href="">Log out</a></li>
+                    <li><a href="login.html">Log out</a></li>
                 </ul>
 
             </div>
