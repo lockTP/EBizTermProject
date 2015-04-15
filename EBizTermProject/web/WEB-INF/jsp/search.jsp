@@ -15,7 +15,7 @@
 <%@page import="model.User"%>
 <%@page import="model.Job"%>
 <!DOCTYPE html>
-    <jsp:useBean id="userdao" scope="page" class="dao.UserDAO"/>
+
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">

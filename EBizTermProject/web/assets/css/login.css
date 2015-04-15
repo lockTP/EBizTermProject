@@ -4,7 +4,7 @@ html, body {
 }
 
 body{
-    background:#436EEE;
+    background:#009999;
 }
 
 body{
@@ -290,7 +290,7 @@ section h2{
 }
 
 .section-first #placeholder{
-    background:url('../img/example.png') no-repeat;
+    background:url('../img/Job-Hunting.jpg') no-repeat;
     background-size:cover;
     background-position:center;
     position:absolute;
