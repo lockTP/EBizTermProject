@@ -65,7 +65,7 @@
     </nav>
 
     <div class="container-fluid">
-        <div class="row-main">
+        <div class="row-main" style="padding-top:8%">
             <div class="col-sm-6 col-sm-offset-3">
                 <div class="panel panel-default">
                     <div class="panel-heading">

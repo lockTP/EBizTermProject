@@ -12,7 +12,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Welcome to PittTrade!</title>
+        <title>Welcome to JobHunter!</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -30,7 +30,7 @@
                 <div class="navbar-header">
 
                     <div class="header-logo-container navbar-brand">
-                        <h1>Job Hunter</h1>
+                        <h1><b>Job Hunter</b></h1>
                     </div>
 
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -107,9 +107,6 @@
             </div>
         </section>
         
-        
-        <!-- madal  (sign up)
-        ======================================================================-->
         <div class="modal fade" id="sigup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -162,7 +159,6 @@
                 </div>
             </div>
         </div>
-         <!-- modal end-->
 
     </body>
 </html>
