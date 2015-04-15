@@ -25,7 +25,6 @@
         <link rel="stylesheet" href="<c:url value="/assets/css/bootstrap.min.css"/>">
         <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
         <script src="<c:url value="/assets/js/bootstrap.min.js"/>"></script>
-        <script src="<c:url value="/assets/js/validateChecker.js"/>"></script>
         <script src="<c:url value="/assets/js/jquery.js"/>"></script>
     </head>
     <body>
