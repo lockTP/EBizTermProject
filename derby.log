@@ -1,8 +1,8 @@
-Tue Apr 14 18:17:12 EDT 2015 : Apache Derby 网络服务器 - 10.10.1.3 - (1557168) 已启动并准备接受端口 1527 上的连接
+Fri Apr 17 15:39:57 EDT 2015 : Apache Derby 网络服务器 - 10.10.1.3 - (1557168) 已启动并准备接受端口 1527 上的连接
 ----------------------------------------------------------------
-Tue Apr 14 18:17:13 EDT 2015:
+Fri Apr 17 15:39:57 EDT 2015:
 正在使用类加载程序 sun.misc.Launcher$AppClassLoader@1d44bcfa 引导数据库
-目录 E:\document\temp\PITT\INFSCI_2730\Assignment6_hab81\EBizTermProject\EBizTermProjectDB 中的 Derby 版本 The Apache Software Foundation - Apache Derby - 10.10.1.3 - (1557168) 实例 a816c00e-014c-ba01-f415-ffffde6b3707
+目录 E:\document\temp\PITT\INFSCI_2730\Assignment6_hab81\EBizTermProject\EBizTermProjectDB 中的 Derby 版本 The Apache Software Foundation - Apache Derby - 10.10.1.3 - (1557168) 实例 a816c00e-014c-c8e5-0f40-ffffde6b3707
 已从 file:/C:/Program%20Files/Java/jdk1.8.0_20/db/lib/derby.jar 加载
 java.vendor=Oracle Corporation
 java.runtime.version=1.8.0_20-b26
@@ -13,8 +13,8 @@ os.version=6.1
 derby.system.home=E:\document\temp\PITT\INFSCI_2730\Assignment6_hab81\EBizTermProject
 数据库类加载程序已启动 - derby.database.classpath=''
 ----------------------------------------------------------------
-Tue Apr 14 18:22:28 EDT 2015：正在关闭 Derby 引擎
+Fri Apr 17 15:56:13 EDT 2015：正在关闭 Derby 引擎
 ----------------------------------------------------------------
-Tue Apr 14 18:22:28 EDT 2015:
-正在使用类加载程序 sun.misc.Launcher$AppClassLoader@1d44bcfa 关闭数据库目录 E:\document\temp\PITT\INFSCI_2730\Assignment6_hab81\EBizTermProject\EBizTermProjectDB 上的实例 a816c00e-014c-ba01-f415-ffffde6b3707
+Fri Apr 17 15:56:13 EDT 2015:
+正在使用类加载程序 sun.misc.Launcher$AppClassLoader@1d44bcfa 关闭数据库目录 E:\document\temp\PITT\INFSCI_2730\Assignment6_hab81\EBizTermProject\EBizTermProjectDB 上的实例 a816c00e-014c-c8e5-0f40-ffffde6b3707
 ----------------------------------------------------------------
